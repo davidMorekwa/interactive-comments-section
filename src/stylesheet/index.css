@@ -1,0 +1,295 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap");
+* {
+  box-sizing: border-box;
+  font-family: "Rubik", sans-serif;
+}
+
+body {
+  background-color: hsl(223, 19%, 93%);
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.new-comment {
+  width: 55%;
+  margin: 15px;
+  border-radius: 11px;
+  padding: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+  background-color: hsl(0, 0%, 100%);
+}
+.new-comment img {
+  width: 5%;
+}
+
+#new-comment {
+  width: 80%;
+  height: 120px;
+  border-radius: 10px;
+  border: 1px solid hsl(223, 19%, 93%);
+  text-align: left;
+  padding: 20px;
+  font-size: 16px;
+  font-family: "Rubik", sans-serif;
+  vertical-align: top;
+}
+#new-comment::-moz-placeholder {
+  font-size: 16px;
+  font-family: "Rubik", sans-serif;
+  color: hsl(211, 10%, 45%);
+}
+#new-comment::placeholder {
+  font-size: 16px;
+  font-family: "Rubik", sans-serif;
+  color: hsl(211, 10%, 45%);
+}
+#new-comment:hover {
+  cursor: pointer;
+}
+
+.comment {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 55%;
+  margin: 15px;
+  border-radius: 11px;
+  padding: 20px;
+  background-color: hsl(0, 0%, 100%);
+}
+
+.comment-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 10px;
+  width: 100%;
+}
+
+.person {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.person > div:nth-child(1) {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.person > div:nth-child(1) img {
+  width: 35px;
+  margin-right: 2%;
+}
+.person > div:nth-child(1) span {
+  margin-right: 2%;
+  white-space: nowrap;
+}
+.person button {
+  border: none;
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  color: hsl(238, 40%, 52%);
+  font-weight: 500;
+}
+.person button img {
+  margin-right: 15%;
+}
+.person button:hover {
+  cursor: pointer;
+  color: hsl(239, 57%, 85%);
+}
+
+.comment-text {
+  color: hsl(211, 10%, 45%);
+  font-size: 16px;
+}
+
+.username {
+  font-weight: 500;
+  margin: 0px 5px;
+}
+
+.createdAt {
+  color: hsl(211, 10%, 45%);
+  font-size: 16px;
+  margin: 0px 5px;
+}
+
+.score {
+  margin: 10px;
+  padding: 15px;
+  height: 110px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 12px;
+  background-color: hsl(223, 19%, 93%);
+}
+.score img:hover {
+  cursor: pointer;
+}
+.score span {
+  color: hsl(238, 40%, 52%);
+}
+
+#btn-send {
+  background-color: hsl(238, 40%, 52%);
+  border: none;
+  width: 10%;
+  height: 40px;
+  border-radius: 7px;
+  color: hsl(0, 0%, 100%);
+}
+#btn-send:hover {
+  background-color: hsl(239, 57%, 85%);
+  cursor: pointer;
+}
+
+.reply-container {
+  padding: 0px;
+  width: 55%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: end;
+}
+
+.reply-container > div {
+  border-left: 1px solid hsl(211, 10%, 45%);
+  width: 93%;
+  padding-left: 3%;
+}
+
+.reply {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 10px 0px;
+  border-radius: 11px;
+  padding: 20px;
+  background-color: hsl(0, 0%, 100%);
+}
+
+.delete-reply-btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.delete-reply-btns .delete-btn {
+  color: hsl(358, 79%, 66%);
+}
+.delete-reply-btns .delete-btn:hover {
+  color: hsl(357, 100%, 86%);
+}
+
+#delete-icon {
+  width: 20px;
+}
+
+#you {
+  background-color: hsl(238, 40%, 52%);
+  color: hsl(0, 0%, 100%);
+  padding: 2px 5px;
+}
+
+#replyingTo {
+  color: hsl(238, 40%, 52%);
+  font-weight: bold;
+}
+
+#confirm-deletion-container {
+  width: inherit;
+  position: absolute;
+  top: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: hsla(211, 10%, 45%, 0.323);
+}
+
+#delete-confirmation-box {
+  width: 27%;
+  border-radius: 10px;
+  position: fixed;
+  background-color: hsl(0, 0%, 100%);
+  padding: 1.5%;
+  top: 225px;
+}
+#delete-confirmation-box > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+#delete-confirmation-box > div button {
+  border: none;
+  height: 40px;
+  width: 45%;
+  border-radius: 7px;
+  color: hsl(0, 0%, 100%);
+  font-family: "Rubik", sans-serif;
+  font-size: 16px;
+}
+#delete-confirmation-box > div button:hover {
+  cursor: pointer;
+}
+#delete-confirmation-box > div button:nth-child(1) {
+  background-color: hsl(211, 10%, 45%);
+}
+#delete-confirmation-box > div button:nth-child(1):hover {
+  background-color: hsl(208, 10%, 66%);
+}
+#delete-confirmation-box > div button:nth-child(2) {
+  background-color: hsl(358, 79%, 66%);
+}
+#delete-confirmation-box > div button:nth-child(2):hover {
+  background-color: hsl(357, 100%, 86%);
+}
+#delete-confirmation-box p:nth-child(1) {
+  font-size: larger;
+}
+#delete-confirmation-box p:nth-child(2) {
+  color: hsl(211, 10%, 45%);
+}
+
+.edit-comment-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-end;
+  width: 100%;
+  margin: 0px;
+}
+.edit-comment-form #edit-comment-textarea {
+  width: 100%;
+  height: 120px;
+  border-radius: 10px;
+  border: 1px solid hsl(223, 19%, 93%);
+  text-align: left;
+  padding: 20px;
+  font-size: 16px;
+  font-family: "Rubik", sans-serif;
+  vertical-align: top;
+  resize: none;
+}
+.edit-comment-form #btn-send {
+  width: 25%;
+  margin-top: 5%;
+}/*# sourceMappingURL=index.css.map */

@@ -1,0 +1,255 @@
+@import "./variables";
+@mixin display-flex($direction, $justify) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+}
+@mixin show-border() {
+  border: 1px solid red;
+}
+* {
+  box-sizing: border-box;
+  font-family: $fontFamily;
+}
+body {
+  background-color: $lightGray;
+}
+.App {
+  @include display-flex(column, center);
+  align-items: center;
+  width: 100%;
+}
+.new-comment {
+  width: 55%;
+  margin: 15px;
+  border-radius: 11px;
+  padding: 15px;
+  @include display-flex(row, space-around);
+  align-items: flex-start;
+  background-color: $white;
+  img {
+    width: 5%;
+  }
+}
+#new-comment {
+  width: 80%;
+  height: 120px;
+  border-radius: 10px;
+  border: 1px solid $lightGray;
+  text-align: left;
+  padding: 20px;
+  font-size: $fontSize;
+  font-family: $fontFamily;
+  vertical-align: top;
+  // resize: none;
+  &::placeholder {
+    font-size: $fontSize;
+    font-family: $fontFamily;
+    color: $grayishBlue;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}
+.comment {
+  @include display-flex(row, flex-start);
+  width: 55%;
+  margin: 15px;
+  border-radius: 11px;
+  padding: 20px;
+  background-color: $white;
+}
+.comment-content {
+  @include display-flex(column, space-around);
+  padding: 10px;
+  width: 100%;
+}
+.person {
+  @include display-flex(row, space-between);
+  > div:nth-child(1) {
+    @include display-flex(row, space-between);
+    align-items: center;
+    img {
+      width: 35px;
+      margin-right: 2%;
+    }
+    span {
+      margin-right: 2%;
+      white-space: nowrap;
+    }
+  }
+  button {
+    border: none;
+    background-color: transparent;
+    @include display-flex(row, space-around);
+    align-items: center;
+    color: $moderateBlue;
+    font-weight: 500;
+    img {
+      margin-right: 15%;
+    }
+    &:hover {
+      cursor: pointer;
+      color: $lightGrayishBlue;
+    }
+  }
+}
+.comment-text {
+  color: $grayishBlue;
+  font-size: $fontSize;
+}
+.username {
+  font-weight: 500;
+  margin: 0px 5px;
+}
+.createdAt {
+  color: $grayishBlue;
+  font-size: $fontSize;
+  margin: 0px 5px;
+}
+.score {
+  margin: 10px;
+  // width: 60px;
+  padding: 15px;
+  height: 110px;
+  @include display-flex(column, space-around);
+  align-items: center;
+  border-radius: 12px;
+  background-color: $lightGray;
+  img {
+    &:hover {
+      cursor: pointer;
+      // TODO:Add background color on hover
+    }
+  }
+  span {
+    color: $moderateBlue;
+  }
+}
+#btn-send {
+  background-color: $moderateBlue;
+  border: none;
+  width: 10%;
+  height: 40px;
+  border-radius: 7px;
+  color: $white;
+  &:hover {
+    background-color: $lightGrayishBlue;
+    cursor: pointer;
+  }
+}
+.reply-container {
+  padding: 0px;
+  width: 55%;
+  @include display-flex(column, space-between);
+  align-items: end;
+}
+.reply-container > div {
+  border-left: 1px solid $grayishBlue;
+  width: 93%;
+  padding-left: 3%;
+}
+.reply {
+  width: 100%;
+  @include display-flex(row, space-around);
+  margin: 10px 0px;
+  border-radius: 11px;
+  padding: 20px;
+  background-color: $white;
+}
+.delete-reply-btns {
+  @include display-flex(row, space-between);
+  align-items: center;
+  .delete-btn {
+    color: $softRed;
+    &:hover {
+      color: $paleRed;
+    }
+  }
+}
+
+#delete-icon {
+  width: 20px;
+}
+#you {
+  background-color: $moderateBlue;
+  color: $white;
+  padding: 2px 5px;
+}
+#replyingTo {
+  color: $moderateBlue;
+  font-weight: bold;
+}
+#confirm-deletion-container {
+  width: inherit;
+  position: absolute;
+  top: 0px;
+  @include display-flex(column, center);
+  align-items: center;
+  background-color: hsla(211, 10%, 45%, 0.323);
+}
+#delete-confirmation-box {
+  width: 27%;
+  border-radius: 10px;
+  position: fixed;
+  background-color: $white;
+  padding: 1.5%;
+  top: 225px;
+
+  > div {
+    @include display-flex(row, space-between);
+    align-items: center;
+    button {
+      border: none;
+      height: 40px;
+      width: 45%;
+      border-radius: 7px;
+      color: $white;
+      font-family: $fontFamily;
+      font-size: $fontSize;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    button:nth-child(1) {
+      background-color: $grayishBlue;
+      &:hover {
+        background-color: hsl(208, 10%, 66%);
+      }
+    }
+    button:nth-child(2) {
+      background-color: $softRed;
+      &:hover {
+        background-color: $paleRed;
+      }
+    }
+  }
+  p:nth-child(1) {
+    font-size: larger;
+  }
+  p:nth-child(2) {
+    color: $grayishBlue;
+  }
+}
+.edit-comment-form {
+  @include display-flex(column, space-evenly);
+  align-items: flex-end;
+  width: 100%;
+  margin: 0px;
+  #edit-comment-textarea {
+    width: 100%;
+    height: 120px;
+    border-radius: 10px;
+    border: 1px solid $lightGray;
+    text-align: left;
+    padding: 20px;
+    font-size: $fontSize;
+    font-family: $fontFamily;
+    vertical-align: top;
+    resize: none;
+  }
+  #btn-send{
+    width: 25%;
+    margin-top: 5%;
+  }
+}
